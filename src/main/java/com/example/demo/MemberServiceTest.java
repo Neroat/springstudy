@@ -6,10 +6,16 @@ import com.example.demo.member.MemberService;
 import com.example.demo.member.MemberServiceImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 public class MemberServiceTest {
+    MemberService memberService;
 
-    MemberService memberService = new MemberServiceImpl();
+    @BeforeEach
+    public void beforeEach(){
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+    }
 
     @Test
     public void join(){
